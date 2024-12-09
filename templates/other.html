@@ -1,0 +1,107 @@
+function initMap() {
+    const boston = { lat: 42.3601, lng: -71.0589 };
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: boston,
+    });
+
+    // Create a legend
+    createLegend(map);
+
+    // Fetch data and place markers
+    fetchAndPlaceMarkers(map);
+}
+
+async function fetchAndPlaceMarkers(map) {
+    const response = await fetch("/data");
+    const data = await response.json();
+
+    for (const opportunity of data) {
+        const geoResponse = await fetch(
+            `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+                opportunity.address
+            )}&key={{ api_key }}`
+        );
+        const geoData = await geoResponse.json();
+
+        if (geoData.status === "OK") {
+            const location = geoData.results[0].geometry.location;
+
+            // Load AdvancedMarkerElement asynchronously
+            const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+            const marker = new AdvancedMarkerElement({
+                position: location,
+                map: map,
+                content: createMarkerContent(markerColors[opportunity.classification]),
+                placementMode: "POINT",
+            });
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <h3>${opportunity.name}</h3>
+                    <p>${opportunity.classification}</p>
+                    <a href="${opportunity.webpage}" target="_blank">Visit Webpage</a>
+                `,
+            });
+
+            marker.addListener("click", () => {
+                infoWindow.open({
+                    map: map,
+                    anchor: marker,
+                });
+            });
+        }
+    }
+}
+
+// Function to create marker content (circle color based on classification)
+function createMarkerContent(color) {
+    const div = document.createElement('div');
+    div.style.width = '20px';
+    div.style.height = '20px';
+    div.style.backgroundColor = color;
+    div.style.borderRadius = '50%';
+    div.style.border = '2px solid #fff';
+    return div;
+}
+
+// Create the legend for the map
+function createLegend(map) {
+    const legend = document.createElement("div");
+    legend.innerHTML = '<h3>Classification Legend</h3>';
+    const markerColors = {
+        "Food Kitchen": "red",
+        "Homeless Shelter": "blue",
+        "Medical Help": "green",
+        "Animal Care": "yellow",
+    };
+
+    for (const [classification, color] of Object.entries(markerColors)) {
+        const legendItem = document.createElement("div");
+        legendItem.style.display = "flex";
+        legendItem.style.alignItems = "center";
+
+        const colorBox = document.createElement("div");
+        colorBox.style.width = "20px";
+        colorBox.style.height = "20px";
+        colorBox.style.backgroundColor = color;
+        colorBox.style.marginRight = "8px";
+
+        const label = document.createElement("span");
+        label.textContent = classification;
+
+        legendItem.appendChild(colorBox);
+        legendItem.appendChild(label);
+        legend.appendChild(legendItem);
+    }
+
+    legend.style.backgroundColor = "#fff";
+    legend.style.border = "1px solid #ccc";
+    legend.style.padding = "10px";
+    legend.style.fontSize = "14px";
+    legend.style.maxWidth = "200px";
+
+    map.controls[google.maps.ControlPosition.RIGHT_TOP].push(legend);
+}

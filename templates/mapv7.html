@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="header" style="display: flex; align-items: left; gap: 10px;">
+    <img src="https://drive.google.com/uc?id=12gKlKRa0rWvFLftnSu4ZzPDZUSSGTKaU" alt="download" style="height: 50px; width: auto;">
+    <div>
+        <h1>Equal Opportunity Boston <small>a data-driven volunteering approach</small></h1>
+        <a id="icons" href="https://www.linkedin.com/in/cyrus-urheim-65b866275/" class="fa fa-linkedin-square" style="color:#0e76a8;"></a>
+        <a id="icons" href="mailto:cyrusthegreat3141@gmail.com" class="fa fa-solid fa-envelope" style="color:#3e65cf;"></a>
+        <a id="icons" href="https://www.youtube.com/@cyrusurheim754/null" class="fa fa-brands fa-youtube" style="color:#CD201F;"></a>
+        <a id="icons" href="https://www.instagram.com/cyrusurheim/" class="fa fa-brands fa-instagram" style="color:#ed088e;"></a>
+    </div>
+</div>
+<div class="topnav" style="display: flex; gap: 10px;">
+    <a class="active" href="/" class="font-weight-bold">Map</a>
+    <a href="aboutus.html" class="font-weight-bold">About Us</a>
+    <a href="datasets.html" class="font-weight-bold">Data Sets</a>
+    <a href="contribute.html">Contribute!</a>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Other
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="academicarchive.html">Academic Archive</a></li>
+            <li><a class="dropdown-item" href="picturearchive.html">Picture Archive</a></li>
+        </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block main %}
+<div id="map" style="height: 100vh;"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap" async defer></script>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- Header Section -->
+<div class="header" style="display: flex; align-items: left; justify-content: space-between; padding: 10px 20px; background-color: #7bdcb5;">
+    <!-- Logo and Title -->
+    <div style="display: flex; align-items: left; gap: 10px;">
+        <img src="https://media.istockphoto.com/id/1456295095/vector/reaching-out-hand.jpg?s=612x612&w=0&k=20&c=kr6xOdOqj1vg_JXEsrC8uSflieiE--lUAEpytZA3hF4=" alt="Logo" style="height: 60px; width: auto;">
+        <div>
+            <h1 style="margin: 0; font-size: 2rem; line-height: 1.2; color: #fff; margin-left: auto;" >
+                Equal Opportunity Boston
+                <small style="font-size: 0.7em; color: #e3f6ef;">a data-driven volunteering approach</small>
+            </h1>
+        </div>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div style="margin-left: auto;">
+        <img style="margin-right: 10px; height: 60px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Harvard_University_logo.svg/2560px-Harvard_University_logo.svg.png" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+    </div>
+</div>
+<div class="topnav">
+    <a href="/" class="font-weight-bold">Map</a>
+    <a href="aboutus.html" class="font-weight-bold">About Us</a>
+    <a class="active" href="contribute.html">Contribute!</a>
+    <div class="dropdown">
+        <button class="font-weight-bold" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Data Sets
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="datasets.html">Volunteer Opportunity Databases</a></li>
+            <li><a class="dropdown-item" href="datasets.html">Socioeconomic Data</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block main %}
+<div style="padding: 20px; margin: 0 auto; padding: 20px;">
+    <h1 style="background-color: #7bdcb5; color: white; padding: 10px;">About Contributing</h1>
+    <p>
+        Equal Opportunities Boston is a completely open access initiative, relying on robust socioeconomic data and regional information that describes the Greater Boston area. 
+        We appreciate any and all contributions to this project, whether it be through updates on the availability of individual opportunities and the emergence of new databases in the future, 
+        or any other information or suggestion that may arise. Contact us here if you are interested in getting involved!
+    </p>
+
+    <!-- Contribution Form using mailto protocol -->
+    <form action="#" method="POST" id="contributeForm" style="margin-top: 20px; padding: 20px; border: 1px solid #ccc; border-radius: 10px;">
+        <div class="mb-3">
+            <label for="name" class="form-label"><strong>Name</strong></label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label"><strong>Email</strong></label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label"><strong>Message</strong></label>
+            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('contributeForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Get form data and encode them
+        var name = encodeURIComponent(document.getElementById('name').value);
+        var email = encodeURIComponent(document.getElementById('email').value);
+        var message = encodeURIComponent(document.getElementById('message').value);
+
+        // Format the body with line breaks for better email readability
+
+        // Create the mailto link with the subject and body
+        var mailtoLink = "mailto:cyrusurheim@college.harvard.edu?subject=" + encodeURIComponent("New Contribution to Equal Opportunity Boston") +
+                         "&body=" + message;
+
+        // Redirect to the mailto link, which will open the user's default email client
+        window.location.href = mailtoLink;
+    });
+</script>
+{% endblock %}

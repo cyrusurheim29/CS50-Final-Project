@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Volunteer Opportunities in Boston</title>
+    <!-- Load the Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap" async defer></script>
+    <script>
+        let map;
+        let currentInfoWindow = null;
+        let currentMarker = null;
+
+        // Define classification types and their associated marker colors
+        const markerColors = {
+            "Food Kitchen": "red",
+            "Homeless Shelter": "blue",
+            "Medical Help": "green",
+            "Animal Care": "yellow"
+        };
+
+        // Function to initialize the map
+        function initMap() {
+            // Center the map on Boston
+            const boston = { lat: 42.3601, lng: -71.0589 };
+            const legend = document.getElementById("legend");
+
+            // Create the map
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: boston,
+            });
+
+            // Fetch data from the server
+a
+                                    // Create a marker
+                                    const marker = new google.maps.marker.AdvancedMarkerElement({
+                                        position: location,
+                                        map: map,
+                                        title: opportunity.name,
+                                        content: createMarkerContent(markerColors[opportunity.classification])
+                                    });
+
+                                    // Create an info window
+                                    const infoWindow = new google.maps.InfoWindow({
+                                        content: `
+                                            <h3>${opportunity.name}</h3>
+                                            <p>${opportunity.classification}</p>
+                                            <a href="${opportunity.webpage}" target="_blank">Visit Webpage</a>
+                                        `,
+                                    });
+
+                                    // Add click listener to toggle info window
+                                    marker.addListener("click", () => {
+                                        if (currentInfoWindow && currentMarker === marker) {
+                                            // If the same marker is clicked, close its info window
+                                            currentInfoWindow.close();
+                                            currentInfoWindow = null;
+                                            currentMarker = null;
+                                        } else {
+                                            // Close the previous info window, if any
+                                            if (currentInfoWindow) {
+                                                currentInfoWindow.close();
+                                            }
+                                            // Open the new info window
+                                            infoWindow.open(map, marker);
+                                            currentInfoWindow = infoWindow;
+                                            currentMarker = marker;
+                                        }
+                                    });
+                                }
+                            });
+                    });
+                });
+                map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+        }
+
+        // Function to create a marker's content (circle color based on classification)
+        function createMarkerContent(color) {
+            const div = document.createElement('div');
+            div.style.width = '20px';
+            div.style.height = '20px';
+            div.style.backgroundColor = color;
+            div.style.borderRadius = '50%';
+            div.style.border = '2px solid #fff'; // To make the border white
+            return div;
+        }
+        var legend = document.getElementById('legend');
+        
+    </script>
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Volunteer Opportunities in Boston</h1>
+    <div id="map"></div>
+</body>
+</html>
