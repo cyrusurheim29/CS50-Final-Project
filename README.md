@@ -1,21 +1,24 @@
 # cyrusurheim29
 # Project Title
 Equal Opportunity Boston: a data-driven volunteering approach
-## Description
+## Design
 
-The original purpose of this project was to build a website that allows users to view data (in the form of an interactive map) showing active volunteer opportunities in the broader Boston area. Volunteer opportunity data was collected from public archives such as the City of Boston's Community Center database, as well as lists and other forms of information scraped from reputable web sources. This data was then represented in a map feature that allows users to select an opportunity and find relevant contact information.
+This project represents a multidisciplinary approach at creating a website to aid volunteers with finding opportunities in the Metro Boston Area. 
 
-The current implementation builds on this core. The website runs on Flask and currently runs through VSCode hosted on Git Hub. It utilizes jinja to bridge the front-end HTML content that users view and interact with and the back-end python that establishes the website's space and provides all necessary data.
+The website itself is coded in HTML. HTML's ability to become dynamic, through integration with Jinja and Flask, made it the perfect choice of language for coding the layout and structure of this project. Bootstrap afforded the tools to make specific HTML objectives possible. These specific HTML endeavors are:
+<ol>
+  <li>a "layout.html" file, which establishes the general layout for all different paths</li>
+  <li>a drop-down menu, which allows for easy access to these paths</li>
+  <li>an accordion element that contains more information on the project's goal</li>
+</ol> 
+Javascript additionally allowed for more customization of the static webpage itself. JS projects in the code include:
+<ol>
+  <li>"typewriter" code, that types out the "About Us" info in real time</li>
+  <li>the entirety of the Google Map feature, and all of the specific syntax and requirements that came with utilizing Google Maps API; this includes the legend, the heat maps, orienting the map on Boston, inputting Pins onto the map, etc.</li>
+</ol> 
 
-Our approach involves analyzing socioeconomic data and integrating it with existing volunteer opportunities to highlight areas of high need. This allows for the ability of users to view volunteer opportunities in their area and analyze relative levels of need based on current trends in housing and food disparity. As this project is completely open access, it benefits from user interactivity and contribution. More than this, as society develops on the large timescale and current availability of opportunities fluctuate on the small, input of users like yourself is essential. This website allows for such contribution, through submission of forms with new datasets, updated information, or anything else.
 
-
-## Getting Started
-
-
-### Dependencies
-### Built With
-
+### HTML Front-End
 * Built with
 <ol>
   <li>python</li>
@@ -39,48 +42,48 @@ Our approach involves analyzing socioeconomic data and integrating it with exist
   <li>csv</li>
 </ol> 
 
-### Installing
+### JavaScript Usage
 
 * Download the project.zip file and open in VSCode. You should have the following structure:
 
-finalproject/
-├── app.py/                   # Your main Django app
-├── static/                     # Static files (CSS, JS, images)
-│   ├── aa_heatmap_data.json
-|   ├── college_heatmap.json
-│   ├── fi_heatmap.json
-|   ├── fi_p_heatmap_data_set2.json
-|   ├── lat_heatmap_data.json
-|   ├── mhi_heatmap_data.json
-|   ├── pov_heatmap_data.json
-│   └── styles.css
-├── templates/                  # HTML template files
-│   ├── aboutus.html            # About Us page template
-│   ├── contribute.html         # Contribution page template
-│   ├── datasets.html           # Datasets page template
-│   ├── layout.html             # Base layout template
-│   └── map.html                # Map display template
-├── web_scraping/               # Custom scripts for web scraping
-│   ├── bcyf_links.py           # Script for selenium web scraping
-│   ├── bcyf_links.txt
-│   ├── bcyf.py                 
-│   ├── community_centers.csv
-│   ├── complete_homeless_shelters.csv
-│   ├── complete_kitchens.csv
-│   ├── complete_kitchens1.csv
-│   ├── complete_kitchens2.csv
-│   ├── complete_kitchens3.csv     
-│   ├── delete.py       
-│   ├── food_banks.pdf       
-│   ├── foodbanks_add.py       
-│   ├── homeless_shelters.py       
-│   ├── kitchens.csv     
-│   └── volopps.db   
-├── app.py    
-└── __pycache__/                # Python cache files
+finalproject/  
+├── app.py/                   # Your main Django app   
+├── static/                     # Static files (CSS, JS, images)  
+│   ├── aa_heatmap_data.json  
+|   ├── college_heatmap.json  
+│   ├── fi_heatmap.json  
+|   ├── fi_p_heatmap_data_set2.json  
+|   ├── lat_heatmap_data.json  
+|   ├── mhi_heatmap_data.json  
+|   ├── pov_heatmap_data.json  
+│   └── styles.css  
+├── templates/                  # HTML template files  
+│   ├── aboutus.html            # About Us page template  
+│   ├── contribute.html         # Contribution page template  
+│   ├── datasets.html           # Datasets page template  
+│   ├── layout.html             # Base layout template  
+│   └── map.html                # Map display template  
+├── web_scraping/               # Custom scripts for web scraping  
+│   ├── bcyf_links.py           # Script for selenium web scraping  
+│   ├── bcyf_links.txt  
+│   ├── bcyf.py                   
+│   ├── community_centers.csv  
+│   ├── complete_homeless_shelters.csv  
+│   ├── complete_kitchens.csv  
+│   ├── complete_kitchens1.csv  
+│   ├── complete_kitchens2.csv  
+│   ├── complete_kitchens3.csv  
+│   ├── delete.py  
+│   ├── food_banks.pdf  
+│   ├── foodbanks_add.py         
+│   ├── homeless_shelters.py         
+│   ├── kitchens.csv  
+│   └── volopps.db  
+├── app.py  
+└── __pycache__/                # Python cache files  
 
 
-### Executing program
+### Python Backend (Flask, app.py)
 
 * Once all the files have been uploaded successfully, begin by creating a virtual python environment in the finalproject folder by executing
   ```sh
@@ -98,9 +101,10 @@ finalproject/
   ```
 in the terminal, and open the web page via the forwarded port! Explore the Google Map's legend and heat map features; learn more about the project; contribute by sending in an email through the website; view the datasets.
 
+### Python Backend (Web Scraping and Data Collection)
+
 ## Authors
 Cyrus Urheim
-[@cyrusurheim29](https://github.com/cyrusurheim29/CS50-Final-Project)
 
 ## Version History
 
