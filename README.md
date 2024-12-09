@@ -90,10 +90,7 @@ finalproject/
 *  source venv/bin/activate
   ```
 *  Once the virtual environment is activated, then you may begin installing the required dependencies using "pip install".
-*  A Google Maps API Key is unfortunately required. In app.py, replace the existing API code with
-  ```sh
-  GOOGLE_MAPS_API_KEY = "AIzaSyCLP7ugaKpJVaW79mHe6Fesj00KycMdvWM"
-  ```
+*  A Google Maps API Key is unfortunately required. In app.py, replace the existing placeholder with your API code
 * To run the code, simply execute
   ```sh
   flask run
