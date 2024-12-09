@@ -47,8 +47,8 @@ Javascript additionally allowed for more customization of the static webpage its
 * Download the project.zip file and open in VSCode. You should have the following structure:
 
 finalproject/  
-├── app.py/                   # Your main Django app   
-├── static/                     # Static files (CSS, JS, images)  
+├── app.py/                 
+├── static/               
 │   ├── aa_heatmap_data.json  
 |   ├── college_heatmap.json  
 │   ├── fi_heatmap.json  
@@ -57,14 +57,14 @@ finalproject/
 |   ├── mhi_heatmap_data.json  
 |   ├── pov_heatmap_data.json  
 │   └── styles.css  
-├── templates/                  # HTML template files  
-│   ├── aboutus.html            # About Us page template  
-│   ├── contribute.html         # Contribution page template  
-│   ├── datasets.html           # Datasets page template  
-│   ├── layout.html             # Base layout template  
-│   └── map.html                # Map display template  
-├── web_scraping/               # Custom scripts for web scraping  
-│   ├── bcyf_links.py           # Script for selenium web scraping  
+├── templates/          
+│   ├── aboutus.html          
+│   ├── contribute.html      
+│   ├── datasets.html   
+│   ├── layout.html               
+│   └── map.html                
+├── web_scraping/                 
+│   ├── bcyf_links.py             
 │   ├── bcyf_links.txt  
 │   ├── bcyf.py                   
 │   ├── community_centers.csv  
@@ -80,7 +80,7 @@ finalproject/
 │   ├── kitchens.csv  
 │   └── volopps.db  
 ├── app.py  
-└── __pycache__/                # Python cache files  
+└── __pycache__/                
 
 
 ### Python Backend (Flask, app.py)
