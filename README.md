@@ -1,24 +1,19 @@
 # cyrusurheim29
 # Project Title
 Equal Opportunity Boston: a data-driven volunteering approach
-## Design
+## Description
 
-This project represents a multidisciplinary approach at creating a website to aid volunteers with finding opportunities in the Metro Boston Area. 
+The original purpose of this project was to build a website that allows users to view data (in the form of an interactive map) showing active volunteer opportunities in the broader Boston area. Volunteer opportunity data was collected from public archives such as the City of Boston's Community Center database, as well as lists and other forms of information scraped from reputable web sources. This data was then represented in a map feature that allows users to select an opportunity and find relevant contact information.
 
-The website itself is coded in HTML. HTML's ability to become dynamic, through integration with Jinja and Flask, made it the perfect choice of language for coding the layout and structure of this project. Bootstrap afforded the tools to make specific HTML objectives possible. These specific HTML endeavors are:
-<ol>
-  <li>a "layout.html" file, which establishes the general layout for all different paths</li>
-  <li>a drop-down menu, which allows for easy access to these paths</li>
-  <li>an accordion element that contains more information on the project's goal</li>
-</ol> 
-Javascript additionally allowed for more customization of the static webpage itself. JS projects in the code include:
-<ol>
-  <li>"typewriter" code, that types out the "About Us" info in real time</li>
-  <li>the entirety of the Google Map feature, and all of the specific syntax and requirements that came with utilizing Google Maps API; this includes the legend, the heat maps, orienting the map on Boston, inputting Pins onto the map, etc.</li>
-</ol> 
+The current implementation builds on this core. The website runs on Flask and currently runs through VSCode hosted on Git Hub. It utilizes jinja to bridge the front-end HTML content that users view and interact with and the back-end python that establishes the website's space and provides all necessary data.
+
+Our approach involves analyzing socioeconomic data and integrating it with existing volunteer opportunities to highlight areas of high need. This allows for the ability of users to view volunteer opportunities in their area and analyze relative levels of need based on current trends in housing and food disparity. As this project is completely open access, it benefits from user interactivity and contribution. More than this, as society develops on the large timescale and current availability of opportunities fluctuate on the small, input of users like yourself is essential. This website allows for such contribution, through submission of forms with new datasets, updated information, or anything else.
 
 
-### HTML Front-End
+## Getting Started
+
+
+### Dependencies
 * Built with
 <ol>
   <li>python</li>
@@ -42,7 +37,7 @@ Javascript additionally allowed for more customization of the static webpage its
   <li>csv</li>
 </ol> 
 
-### JavaScript Usage
+### Installing
 
 * Download the project.zip file and open in VSCode. You should have the following structure:
 
@@ -80,10 +75,10 @@ finalproject/
 │   ├── kitchens.csv  
 │   └── volopps.db  
 ├── app.py  
-└── __pycache__/                
+└── __pycache__/         
 
 
-### Python Backend (Flask, app.py)
+### Executing program
 
 * Once all the files have been uploaded successfully, begin by creating a virtual python environment in the finalproject folder by executing
   ```sh
@@ -94,14 +89,15 @@ finalproject/
 *  source venv/bin/activate
   ```
 *  Once the virtual environment is activated, then you may begin installing the required dependencies using "pip install".
-
+*  A Google Maps API Key is unfortunately required. In app.py, replace the existing API code with
+  ```sh
+  GOOGLE_MAPS_API_KEY = "AIzaSyCLP7ugaKpJVaW79mHe6Fesj00KycMdvWM"
+  ```
 * To run the code, simply execute
   ```sh
   flask run
   ```
 in the terminal, and open the web page via the forwarded port! Explore the Google Map's legend and heat map features; learn more about the project; contribute by sending in an email through the website; view the datasets.
-
-### Python Backend (Web Scraping and Data Collection)
 
 ## Authors
 Cyrus Urheim
