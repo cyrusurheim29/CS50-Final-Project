@@ -9,7 +9,7 @@ app.secret_key = os.urandom(24)
 db = SQL("sqlite:///web_scraping/volopps.db")
 
 # Google Maps API key
-GOOGLE_MAPS_API_KEY = "AIzaSyCLP7ugaKpJVaW79mHe6Fesj00KycMdvWM"
+GOOGLE_MAPS_API_KEY = "api key"
 
 @app.route("/", methods=["GET", "POST"])
 def index():
