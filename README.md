@@ -2,6 +2,7 @@
 # Project Title
 Equal Opportunity Boston: a data-driven volunteering approach
 ## Description
+YOUTUBE LINK: https://youtu.be/npwl4FD0emc
 
 The original purpose of this project was to build a website that allows users to view data (in the form of an interactive map) showing active volunteer opportunities in the broader Boston area. Volunteer opportunity data was collected from public archives such as the City of Boston's Community Center database, as well as lists and other forms of information scraped from reputable web sources. This data was then represented in a map feature that allows users to select an opportunity and find relevant contact information.
 
@@ -115,5 +116,5 @@ This project is not licensed as of now. It is completely publicly accessible and
 
 ## Acknowledgments
 
-* Many thanks to my CS50 Sedik for his dedicated support and advice.
+* Many thanks to my TF Sedik for his dedicated support and advice.
 * Inspiration of project exigence and html formatting comes from Harvard's own Opportunity Insights initiative.
